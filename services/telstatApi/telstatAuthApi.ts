@@ -1,7 +1,7 @@
 import TelstatAbstractApi from "./TelstatAbstractApi";
 import type { Response, ResponseWithUser } from "./types";
 
-interface LoginCredentials {
+export interface LoginCredentials {
   userName: string;
   password: string;
 }

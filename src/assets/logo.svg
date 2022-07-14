@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="405.50204"
+   height="143.30817"
+   viewBox="0 0 107.28909 37.916954"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2 (56b05e47e7, 2022-06-09, custom)"
+   sodipodi:docname="logo.svg"
+   inkscape:export-filename="/home/franco/projects/node/telstat/assets/logo.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="1.9580195"
+     inkscape:cx="214.75781"
+     inkscape:cy="30.643208"
+     inkscape:window-width="1920"
+     inkscape:window-height="1007"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer2"
+     units="px"
+     width="489.54034px"
+     inkscape:showpageshadow="2"
+     inkscape:deskcolor="#d1d1d1" />
+  <defs
+     id="defs2">
+    <linearGradient
+       id="linearGradient2980"
+       inkscape:swatch="gradient">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop2976" />
+      <stop
+         style="stop-color:#000000;stop-opacity:0;"
+         offset="1"
+         id="stop2978" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient2958"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop2956" />
+    </linearGradient>
+  </defs>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="foreground"
+     transform="translate(-84.257419,-123.29832)">
+    <path
+       id="path387-7"
+       style="display:inline;opacity:1;fill:#742ee9;fill-opacity:1;stroke:none;stroke-width:0.132292;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.322405"
+       d="m 92.519436,132.55053 -8.262017,14.31025 8.262016,14.31023 H 109.0435 l 8.26202,-14.31024 -1.64589,-2.85047 -24.104815,12.71822 22.518865,-15.46586 -0.0904,-0.15606 -24.10327,12.71771 22.51731,-15.46482 -0.13384,-0.23152 -24.101711,12.71668 22.515771,-15.4638 -1.63402,-2.83032 z"
+       sodipodi:nodetypes="cccccccccccccccc" />
+    <path
+       sodipodi:type="star"
+       style="opacity:1;fill:#742ee9;fill-opacity:1;stroke-width:0.132292;stroke-opacity:0.322405"
+       id="path42428"
+       inkscape:flatsided="false"
+       sodipodi:sides="4"
+       sodipodi:cx="30.053741"
+       sodipodi:cy="10.786728"
+       sodipodi:r1="9.0137167"
+       sodipodi:r2="1.8027432"
+       sodipodi:arg1="0"
+       sodipodi:arg2="0.78539816"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="M 39.067458,10.786728 31.328473,12.06146 30.053741,19.800445 28.77901,12.06146 21.040025,10.786728 28.77901,9.511996 30.053741,1.7730112 31.328473,9.511996 Z"
+       transform="matrix(0.26458333,0,0,0.26458333,102.12771,125.28236)" />
+    <path
+       sodipodi:type="star"
+       style="opacity:1;fill:#742ee9;fill-opacity:1;stroke-width:0.132292;stroke-opacity:0.322405"
+       id="path42428-7"
+       inkscape:flatsided="false"
+       sodipodi:sides="4"
+       sodipodi:cx="30.053741"
+       sodipodi:cy="10.786728"
+       sodipodi:r1="9.0137167"
+       sodipodi:r2="1.8027432"
+       sodipodi:arg1="0"
+       sodipodi:arg2="0.78539816"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="M 39.067458,10.786728 31.328473,12.06146 30.053741,19.800445 28.77901,12.06146 21.040025,10.786728 28.77901,9.511996 30.053741,1.7730112 31.328473,9.511996 Z"
+       transform="matrix(0.26458333,0,0,0.26458333,108.75601,122.82921)" />
+    <path
+       sodipodi:type="star"
+       style="opacity:1;fill:#742ee9;fill-opacity:1;stroke-width:0.132292;stroke-opacity:0.322405"
+       id="path42428-7-5"
+       inkscape:flatsided="false"
+       sodipodi:sides="4"
+       sodipodi:cx="30.053741"
+       sodipodi:cy="10.786728"
+       sodipodi:r1="9.0137167"
+       sodipodi:r2="1.8027432"
+       sodipodi:arg1="0"
+       sodipodi:arg2="0.78539816"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="M 39.067458,10.786728 31.328473,12.06146 30.053741,19.800445 28.77901,12.06146 21.040025,10.786728 28.77901,9.511996 30.053741,1.7730112 31.328473,9.511996 Z"
+       transform="matrix(0.26458333,0,0,0.26458333,107.55826,129.21486)" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:27.7193px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.692982"
+       x="122.37576"
+       y="161.21527"
+       id="text50548"><tspan
+         sodipodi:role="line"
+         id="tspan50546"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Dhurjati;-inkscape-font-specification:Dhurjati;fill:#742ee9;fill-opacity:1;stroke-width:0.692982"
+         x="122.37576"
+         y="161.21527">TelStat</tspan></text>
+  </g>
+  <g
+     inkscape:label="background"
+     inkscape:groupmode="layer"
+     id="layer1"
+     style="display:inline"
+     transform="translate(-84.257419,-123.29832)" />
+</svg>
