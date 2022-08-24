@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import telstatPublisherApi from "../../../services/telstatApi/telstatPublisherApi";
-import type { Publisher } from "../../../services/telstatApi/models";
+import telstatPublisherApi from "@/../services/telstatApi/telstatPublisherApi";
+import type { Publisher } from "@/../services/telstatApi/models";
 
 import { defineProps, reactive, toRefs } from "vue";
 

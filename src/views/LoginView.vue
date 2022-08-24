@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import telstatAuthApi from "../../services/telstatApi/telstatAuthApi";
-import type { LoginCredentials } from "../../services/telstatApi/telstatAuthApi";
+import telstatAuthApi from "@/../services/telstatApi/telstatAuthApi";
+import type { LoginCredentials } from "@/../services/telstatApi/telstatAuthApi";
 import { useUserStore } from "@/stores/user";
 import router from "@/router";
 
@@ -17,7 +17,14 @@ const handleSubmit = (event: Event) => {
   telstatAuthApi
     .login(data)
     .then((response) => {
-      userStore.login(response.data);
+      const { _id: id, userName, firstName, lastName } = response.data;
+
+      userStore.login({
+        id,
+        userName,
+        firstName,
+        lastName,
+      });
       router.push("/auth");
     })
     .catch((error) => {
