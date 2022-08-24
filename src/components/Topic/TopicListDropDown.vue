@@ -6,6 +6,7 @@ import { useTopicStore } from "@/stores/topics";
 const topicStore = useTopicStore();
 
 const props = defineProps({
+  disabled: Boolean,
   publisherId: String,
   selectedTopic: {
     type: Object as PropType<Topic>,
@@ -22,6 +23,7 @@ const props = defineProps({
     name=""
     id="topicDropDownList_"
     :value="!selectedTopic ? 'not-assigned' : selectedTopic._id"
+    :disabled="disabled"
     @change="handleChangeTopic($event, publisherId)"
   >
     <template v-for="topic in topicStore.getTopics" :key="topic._id">

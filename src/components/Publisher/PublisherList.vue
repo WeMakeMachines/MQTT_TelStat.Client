@@ -45,6 +45,7 @@ const handleChangeTopic = (event: Event, publisherId: string) => {
           <td>{{ publisher.nanoId }}</td>
           <td>
             <TopicListDropDown
+              :disabled="publisher.owner._id !== userId"
               :publisher-id="publisher._id"
               :selected-topic="publisher.topic"
               :handle-change-topic="handleChangeTopic"
@@ -61,8 +62,8 @@ const handleChangeTopic = (event: Event, publisherId: string) => {
           </td>
           <td>
             <button
+              :disabled="publisher.owner._id !== userId"
               @click="deletePublisher(publisher._id)"
-              v-if="publisher.owner._id === userId"
             >
               X
             </button>
