@@ -1,14 +1,20 @@
 <script setup lang="ts">
-import { defineProps } from "vue";
+import TelstatPublisherApi from "@/../services/telstatApi/telstatPublisherApi";
+import TopicListDropDown from "@/components/Topic/TopicListDropDown.vue";
 
 const props = defineProps({
   publishers: { type: [] },
+  userId: String,
+  deletePublisher: Function,
 });
 
-const showPublishDate = (date: null | number): string => {
-  if (!date) return "Not receiving data!";
+const handleChangeTopic = (event: Event, publisherId: string) => {
+  const element = event.target as HTMLSelectElement;
+  const topicId = element.value;
 
-  return new Date(date).toLocaleDateString();
+  if (topicId) {
+    TelstatPublisherApi.updateTopic({ publisherId, topicId });
+  }
 };
 </script>
 
@@ -18,28 +24,48 @@ const showPublishDate = (date: null | number): string => {
       <tr>
         <th>Name</th>
         <th>id</th>
+        <th>topic</th>
         <th>owner</th>
         <th>last publish date</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
-      <template v-for="item in publishers" :key="item._id">
+      <template v-for="publisher in publishers" :key="publisher._id">
         <tr>
           <td>
             <router-link
               :to="{
                 name: 'publisher',
-                params: { publisherId: `${item._id}` },
+                params: { publisherId: `${publisher._id}` },
               }"
-              >{{ item.name }}</router-link
+              >{{ publisher.name }}</router-link
             >
           </td>
-          <td>{{ item._id.slice(0, 3) }}...</td>
+          <td>{{ publisher.nanoId }}</td>
           <td>
-            {{ item.owner.userName }}
+            <TopicListDropDown
+              :publisher-id="publisher._id"
+              :selected-topic="publisher.topic"
+              :handle-change-topic="handleChangeTopic"
+            />
           </td>
           <td>
-            {{ showPublishDate(item.lastPublishDate) }}
+            {{ publisher.owner.userName }}
+          </td>
+          <td>
+            <p v-if="publisher.lastPublishDate">
+              {{ publisher.lastPublishDate }}
+            </p>
+            <p v-else>Not receiving data</p>
+          </td>
+          <td>
+            <button
+              @click="deletePublisher(publisher._id)"
+              v-if="publisher.owner._id === userId"
+            >
+              X
+            </button>
           </td>
         </tr>
       </template>
