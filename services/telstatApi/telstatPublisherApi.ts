@@ -1,14 +1,9 @@
 import TelstatAbstractApi from "./TelstatAbstractApi";
-import type { Response } from "./types";
-import type { Publisher } from "./models";
-
-interface ResponseWithPublisher extends Response {
-  data: Publisher;
-}
-
-interface ResponseWithPublisherList extends Response {
-  data: Publisher[];
-}
+import type {
+  Response,
+  ResponseWithPublisher,
+  ResponseWithPublisherList,
+} from "./types";
 
 class TelstatPublisherApi extends TelstatAbstractApi {
   url = this.host + "/publisher";
@@ -17,7 +12,7 @@ class TelstatPublisherApi extends TelstatAbstractApi {
     super();
   }
 
-  public create(name: string): Promise<Response> {
+  public create(name: string): Promise<ResponseWithPublisher> {
     return new Promise((resolve, reject) => {
       this.axiosWithCredentials
         .post(this.url + "/create", { name })
@@ -56,10 +51,16 @@ class TelstatPublisherApi extends TelstatAbstractApi {
     });
   }
 
-  public deleteTelemetry(publisherId: string): Promise<Response> {
+  public rename({
+    publisherId,
+    name,
+  }: {
+    publisherId: string;
+    name: string;
+  }): Promise<Response> {
     return new Promise((resolve, reject) => {
       this.axiosWithCredentials
-        .patch(this.url + "/delete-telemetry/" + publisherId)
+        .patch(this.url + "/rename/" + publisherId, { name })
         .then((response) => {
           resolve(response.data);
         })
@@ -69,13 +70,16 @@ class TelstatPublisherApi extends TelstatAbstractApi {
     });
   }
 
-  public rename(
-    publisherId: string,
-    { name }: { name: string }
-  ): Promise<Response> {
+  public updateTopic({
+    publisherId,
+    topicId,
+  }: {
+    publisherId: string;
+    topicId: string | null;
+  }): Promise<Response> {
     return new Promise((resolve, reject) => {
       this.axiosWithCredentials
-        .patch(this.url + "/rename/" + publisherId, { name })
+        .patch(this.url + "/topic/" + publisherId, { topicId })
         .then((response) => {
           resolve(response.data);
         })
@@ -89,6 +93,19 @@ class TelstatPublisherApi extends TelstatAbstractApi {
     return new Promise((resolve, reject) => {
       this.axiosWithCredentials
         .delete(this.url + "/" + publisherId)
+        .then((response) => {
+          resolve(response.data);
+        })
+        .catch((error) => {
+          reject(error.response.data);
+        });
+    });
+  }
+
+  public deleteTelemetry(publisherId: string): Promise<Response> {
+    return new Promise((resolve, reject) => {
+      this.axiosWithCredentials
+        .patch(this.url + "/delete-telemetry/" + publisherId)
         .then((response) => {
           resolve(response.data);
         })
