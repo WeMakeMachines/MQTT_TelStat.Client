@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref } from "vue";
 import TelstatPublisherApi from "@/../services/telstatApi/telstatPublisherApi";
 import TopicListDropDown from "@/components/Topic/TopicListDropDown.vue";
 
@@ -7,6 +8,12 @@ const props = defineProps({
   userId: String,
   deletePublisher: Function,
 });
+
+const lockChanges = ref(true);
+
+const handleToggleLockChanges = () => {
+  lockChanges.value = !lockChanges.value;
+};
 
 const handleChangeTopic = (event: Event, publisherId: string) => {
   const element = event.target as HTMLSelectElement;
@@ -19,6 +26,9 @@ const handleChangeTopic = (event: Event, publisherId: string) => {
 </script>
 
 <template>
+  <button @click="handleToggleLockChanges">
+    {{ lockChanges ? "Unlock" : "Lock" }}
+  </button>
   <table>
     <thead>
       <tr>
@@ -45,7 +55,7 @@ const handleChangeTopic = (event: Event, publisherId: string) => {
           <td>{{ publisher.nanoId }}</td>
           <td>
             <TopicListDropDown
-              :disabled="publisher.owner._id !== userId"
+              :disabled="publisher.owner._id !== userId || lockChanges"
               :publisher-id="publisher._id"
               :selected-topic="publisher.topic"
               :handle-change-topic="handleChangeTopic"
@@ -62,7 +72,7 @@ const handleChangeTopic = (event: Event, publisherId: string) => {
           </td>
           <td>
             <button
-              :disabled="publisher.owner._id !== userId"
+              :disabled="publisher.owner._id !== userId || lockChanges"
               @click="deletePublisher(publisher._id)"
             >
               X
