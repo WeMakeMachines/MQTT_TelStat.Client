@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { LoginCredentials } from "@/../services/telstatApi/telstatAuthApi";
-import { useUserStore } from "@/stores/user";
+import { useAuthStore } from "@/stores/auth";
 
-const userStore = useUserStore();
+const authStore = useAuthStore();
 
 const handleSubmit = (event: Event) => {
   event.preventDefault();
@@ -12,7 +12,7 @@ const handleSubmit = (event: Event) => {
     password: formData.get("password") as string,
   };
 
-  userStore.login(data);
+  authStore.login(data);
 };
 </script>
 

@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { RouterView } from "vue-router";
-import { useUserStore } from "@/stores/user";
+import { useAuthStore } from "@/stores/auth";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
-const userStore = useUserStore();
+const authStore = useAuthStore();
 
-userStore.hydrate();
+authStore.hydrate();
 
-if (!userStore.getLoggedInStatus) {
+if (!authStore.getLoggedInStatus) {
   router.push("/login");
 } else {
   router.push("/auth");

@@ -13,8 +13,8 @@ const initialState = {
   lastName: "",
 };
 
-export const useUserStore = defineStore({
-  id: "user",
+export const useAuthStore = defineStore({
+  id: "auth",
   state: () => initialState,
   getters: {
     getLoggedInStatus: (state) => state.loggedIn,
@@ -25,14 +25,14 @@ export const useUserStore = defineStore({
   },
   actions: {
     hydrate() {
-      const userData = LocalStorage.get("user");
+      const authData = LocalStorage.get("auth");
 
-      if (userData) {
+      if (authData) {
         this.loggedIn = true;
-        this.id = userData.id;
-        this.userName = userData.userName;
-        this.firstName = userData.firstName;
-        this.lastName = userData.lastName;
+        this.id = authData.id;
+        this.userName = authData.userName;
+        this.firstName = authData.firstName;
+        this.lastName = authData.lastName;
       }
     },
     async login(loginCredentials: LoginCredentials) {
@@ -50,7 +50,7 @@ export const useUserStore = defineStore({
         this.firstName = firstName;
         this.lastName = lastName;
 
-        LocalStorage.store("user", {
+        LocalStorage.store("auth", {
           id,
           userName,
           firstName,

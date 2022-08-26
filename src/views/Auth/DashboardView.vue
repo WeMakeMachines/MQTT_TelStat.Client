@@ -6,13 +6,13 @@ import TopicList from "@/components/Topic/TopicList.vue";
 import PublisherList from "@/components/Publisher/PublisherList.vue";
 import { usePublisherStore } from "@/stores/publishers";
 import { useTopicStore } from "@/stores/topics";
-import { useUserStore } from "@/stores/user";
+import { useAuthStore } from "@/stores/auth";
 
 const showAddPublisherModal = ref(false);
 const showAddTopicModal = ref(false);
 const publisherStore = usePublisherStore();
 const topicStore = useTopicStore();
-const userStore = useUserStore();
+const authStore = useAuthStore();
 
 const handleAddPublisher = (event: Event) => {
   event.preventDefault();
@@ -47,7 +47,7 @@ topicStore.setTopicsFromApi();
     <h1>Dashboard</h1>
     <PublisherList
       :publishers="publisherStore.getPublishers"
-      :user-id="userStore.getId"
+      :user-id="authStore.getId"
       :delete-publisher="handleDeletePublisher"
     />
     <button @click="showAddPublisherModal = true">+ Publisher</button>
