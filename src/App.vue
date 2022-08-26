@@ -6,6 +6,8 @@ import { useRouter } from "vue-router";
 const router = useRouter();
 const userStore = useUserStore();
 
+userStore.hydrate();
+
 if (!userStore.getLoggedInStatus) {
   router.push("/login");
 } else {

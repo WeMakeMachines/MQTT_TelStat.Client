@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+import LocalStorage from "../../services/LocalStorage";
 
 const initialState = {
   loggedIn: false,
@@ -19,6 +20,17 @@ export const useUserStore = defineStore({
     getLastName: (state) => state.lastName,
   },
   actions: {
+    hydrate() {
+      const userData = LocalStorage.get("user");
+
+      if (userData) {
+        this.loggedIn = true;
+        this.id = userData.id;
+        this.userName = userData.userName;
+        this.firstName = userData.firstName;
+        this.lastName = userData.lastName;
+      }
+    },
     login({
       id,
       userName,
@@ -30,6 +42,13 @@ export const useUserStore = defineStore({
       this.userName = userName;
       this.firstName = firstName;
       this.lastName = lastName;
+
+      LocalStorage.store("user", {
+        id,
+        userName,
+        firstName,
+        lastName,
+      });
     },
   },
 });
