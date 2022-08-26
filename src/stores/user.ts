@@ -1,5 +1,9 @@
 import { defineStore } from "pinia";
-import LocalStorage from "../../services/LocalStorage";
+
+import LocalStorage from "@/../services/LocalStorage";
+import telstatAuthApi from "@/../services/telstatApi/telstatAuthApi";
+import type { LoginCredentials } from "@/../services/telstatApi/telstatAuthApi";
+import router from "@/router";
 
 const initialState = {
   loggedIn: false,
@@ -31,24 +35,32 @@ export const useUserStore = defineStore({
         this.lastName = userData.lastName;
       }
     },
-    login({
-      id,
-      userName,
-      firstName,
-      lastName,
-    }: Omit<typeof initialState, "loggedIn">) {
-      this.loggedIn = true;
-      this.id = id;
-      this.userName = userName;
-      this.firstName = firstName;
-      this.lastName = lastName;
+    async login(loginCredentials: LoginCredentials) {
+      try {
+        const response = await telstatAuthApi.login({
+          userName: loginCredentials.userName,
+          password: loginCredentials.password,
+        });
 
-      LocalStorage.store("user", {
-        id,
-        userName,
-        firstName,
-        lastName,
-      });
+        const { _id: id, userName, firstName, lastName } = response.data;
+
+        this.loggedIn = true;
+        this.id = id;
+        this.userName = userName;
+        this.firstName = firstName;
+        this.lastName = lastName;
+
+        LocalStorage.store("user", {
+          id,
+          userName,
+          firstName,
+          lastName,
+        });
+
+        router.push("/auth");
+      } catch (error) {
+        console.log(error);
+      }
     },
   },
 });

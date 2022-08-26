@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+
 import type { Publisher } from "@/../services/telstatApi/models";
 import telstatPublisherApi from "@/../services/telstatApi/telstatPublisherApi";
 
