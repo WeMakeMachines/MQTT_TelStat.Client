@@ -8,11 +8,18 @@ const authStore = useAuthStore();
 
 authStore.hydrate();
 
-if (!authStore.getLoggedInStatus) {
-  router.push("/login");
-} else {
-  router.push("/auth");
-}
+authStore.$onAction(({ name, after }) => {
+  after(() => {
+    switch (name) {
+      case "logout":
+        router.push("/login");
+        break;
+      case "login":
+        router.push("/auth");
+        break;
+    }
+  });
+});
 </script>
 
 <template>

@@ -10,4 +10,8 @@ export default class LocalStorage {
   public static store(key: string, data: object) {
     window.localStorage.setItem(key, JSON.stringify(data));
   }
+
+  public static delete(key: string) {
+    window.localStorage.removeItem(key);
+  }
 }

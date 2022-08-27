@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import AuthHeader from "@/components/Header/AuthHeader.vue";
 import AddTopicModal from "@/components/Modals/AddTopicModal.vue";
 import AddPublisherModal from "@/components/Modals/AddPublisherModal.vue";
 import TopicList from "@/components/Topic/TopicList.vue";
@@ -44,6 +45,7 @@ topicStore.setTopicsFromApi();
 
 <template>
   <main>
+    <AuthHeader />
     <h1>Dashboard</h1>
     <PublisherList
       :publishers="publisherStore.getPublishers"

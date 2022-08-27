@@ -57,7 +57,15 @@ export const useAuthStore = defineStore({
           lastName,
         });
 
-        router.push("/auth");
+        await router.push("/auth");
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async logout() {
+      try {
+        await telstatAuthApi.logout();
+        LocalStorage.delete("auth");
       } catch (error) {
         console.log(error);
       }
